@@ -2,16 +2,18 @@
 //  on a grid of tiles
 Crafty.c('Grid', {
   init: function() {
+    'use strict';
     this.attr({
       w: Game.map_grid.tile.width,
       h: Game.map_grid.tile.height
-    })
+    });
   },
 
   // Locate this entity at the given position on the grid
   at: function(x, y) {
+    'use strict';
     if (x === undefined && y === undefined) {
-      return { x: this.x/Game.map_grid.tile.width, y: this.y/Game.map_grid.tile.height }
+      return { x: this.x/Game.map_grid.tile.width, y: this.y/Game.map_grid.tile.height };
     } else {
       this.attr({ x: x * Game.map_grid.tile.width, y: y * Game.map_grid.tile.height });
       return this;
@@ -23,6 +25,7 @@ Crafty.c('Grid', {
 //  via our logical coordinate grid
 Crafty.c('Actor', {
   init: function() {
+    'use strict';
     this.requires('2D, Canvas, Grid');
   },
 });
@@ -33,7 +36,8 @@ Crafty.c('Actor', {
  * @param  int max [description]
  * @return bool   True/False, should this cell start the game alive?
  */
-randomSpawnStratagy = function(min, max){
+var randomSpawnStratagy = function(min, max){
+  'use strict';
   return function(){
     var i = Math.floor(Math.random() * (max - min + 1) + min);
     if ( i === min){
@@ -41,22 +45,22 @@ randomSpawnStratagy = function(min, max){
     }else{
       return false;
     }
-  }
-} 
+  };
+};
 
 
 
 // A Cell is just an Actor with a certain color
 Crafty.c('Cell', {
   init: function() {
-    
+    'use strict';
     this.requires('Actor, Color');
     this.attr({
       state: false,
       nextState: undefined,
-      neighbors: Array(),
-    })
-    this.attr( 'state', this.spawn() )
+      neighbors: [],
+    });
+    this.attr( 'state', this.spawn() );
     if( this.attr('state') ){
       this.color('rgb(20, 125, 40)');
     }else{
@@ -69,13 +73,14 @@ Crafty.c('Cell', {
   },
   spawn: randomSpawnStratagy(2,8),
   findNeighbors: function(){
+    'use strict';
     var at,x,y,myNeighbors;
     at = this.at();
     x = at.x;
     y = at.y;
 
     
-    myNeighbors = Array();
+    myNeighbors = [];
 
     if( (x+1) < Game.map_grid.width ){
       myNeighbors[myNeighbors.length] = board[x+1][y];
@@ -107,23 +112,25 @@ Crafty.c('Cell', {
 
     if( x+1 < Game.map_grid.width  && y+1 < Game.map_grid.height ){
       myNeighbors[myNeighbors.length] = board[x+1][y+1];
-    } 
+    }
      this.attr( 'neighbors', myNeighbors );
      return myNeighbors;
   },
   sumNeighbors: function(){
+    'use strict';
     var neighbors,sum = 0;
     neighbors = this.attr('neighbors');
 
-    for(i=0;i<neighbors.length;i++){
+    for(var i=0;i<neighbors.length;i++){
       if( neighbors[i].attr('state') ){
         sum++;
       }
     }
 
-    return sum;    
+    return sum;
   },
   deadStrategy: function(){
+    'use strict';
     if( this.sumNeighbors() ===3 ){
       return true;
     }else{
@@ -131,6 +138,7 @@ Crafty.c('Cell', {
     }
   },
   liveStrategy: function(){
+    'use strict';
     var sum = this.sumNeighbors();
     if( sum === 2 || sum === 3 ){
       return true;
@@ -139,6 +147,7 @@ Crafty.c('Cell', {
     }
   },
   calculateState: function(){
+    'use strict';
     if( this.attr('state')  ){
       this.attr('nextState', this.liveStrategy() );
     }else{
@@ -146,6 +155,7 @@ Crafty.c('Cell', {
     }
   },
   updateState: function(){
+    'use strict';
     if(this.attr('state') !== this.attr('nextState') ){
       Game.boardChanged = true;
     }
