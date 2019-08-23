@@ -1,0 +1,30 @@
+{
+  "name": "conways-crafty-life",
+  "version": "1.0.0",
+  "description": "conways-crafty-life\r ===================",
+  "main": "main.js",
+  "directories": {
+    "doc": "docs",
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack --mode=production"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/s-ayers/conways-crafty-life.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/s-ayers/conways-crafty-life/issues"
+  },
+  "homepage": "https://github.com/s-ayers/conways-crafty-life#readme",
+  "devDependencies": {
+    "html-webpack-plugin": "^3.2.0",
+    "webpack": "^4.39.2",
+    "webpack-cli": "^3.3.7"
+  }
+}
