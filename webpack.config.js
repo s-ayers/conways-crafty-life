@@ -9,5 +9,16 @@ module.exports = {
     },
     plugins: [
         new HtmlWebpackPlugin({ title: "Conway's Game of Life" })
-    ]
+    ],
+    module: {
+        rules: [
+            {
+                test: /\.css$/,
+                use: [
+                    'style-loader',
+                    'css-loader'
+                ]
+            }
+        ]
+    }
 };
