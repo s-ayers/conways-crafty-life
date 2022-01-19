@@ -4,9 +4,9 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build --verbose --prod --outputPath docs --base-href ./ --deploy-url https://cdn.jsdelivr.net/gh/s-ayers/conways-crafty-life/docs/",
+    "build": "ng build --configuration production --deploy-url https://cdn.jsdelivr.net/gh/s-ayers/conways-crafty-life/",
     "build:local": "ng build",
-    "test": "ng test",
+    "test": "ng test --watch false --code-coverage",
     "lint": "ng lint",
     "e2e": "ng e2e"
   },
@@ -46,8 +46,8 @@
     "jasmine-reporters": "^2.3.2",
     "jasmine-spec-reporter": "~4.2.1",
     "karma": "^6.3.0",
-    "karma-chrome-launcher": "~2.2.0",
     "karma-coverage": "^2.1.0",
+    "karma-chrome-launcher": "~2.2.0",
     "karma-jasmine": "~2.0.1",
     "karma-jasmine-html-reporter": "^1.7.0",
     "karma-junit-reporter": "^1.2.0",
