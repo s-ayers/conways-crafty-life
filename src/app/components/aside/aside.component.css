@@ -1,0 +1,33 @@
+h1 {
+    color: #839ccf;
+}
+
+h2 {
+    padding-top: 57px;
+}
+
+.circle-img {
+    display: block;
+    width: 150px;
+    height: 150px;
+    margin: 1em auto;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    -webkit-border-radius: 99em;
+    -moz-border-radius: 99em;
+    border-radius: 99em;
+    background-color: lightgray;
+    /* background-image: url('http://placehold.it/150x150'); */
+    margin-top: 25px;
+    margin-bottom: 7px;
+  }
+
+  ::ng-deep .mat-slider-thumb,
+  ::ng-deep .mat-slider-focus-ring {
+      background-color: #4c70ba;
+  }
+
+  ::ng-deep .mat-slider-ticks-container {
+      background-color: grey;
+  }
