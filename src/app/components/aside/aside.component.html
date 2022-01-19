@@ -1,0 +1,22 @@
+
+<alchemist-aside>
+    <h1>Conway's Game of Life</h1>
+
+    <div id="pic_prof_2" class="circle-img">
+      <h2>  {{interations}} </h2>
+    </div>
+
+
+    <div class="row">
+        <div class="col-sm-6">
+            <button class="btn btn-primary" (click)="start($event)">{{startLabel}}</button>
+        </div>
+        <div class="col-sm-6">
+            <button class="btn btn-secondary" (click)="stop($event)">Stop</button>
+        </div>
+    </div>
+
+    <mat-slider min="5" max="3000" step="10" invert="true" [(value)]="interval"></mat-slider>
+
+
+</alchemist-aside>
