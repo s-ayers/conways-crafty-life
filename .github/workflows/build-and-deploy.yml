@@ -10,10 +10,10 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-    - name: Run Karma Tests
-      run: |
-        npm install
-        npm run test
+    # - name: Run Karma Tests
+    #   run: |
+    #     npm install
+    #     npm run test
     - name: All things angular
       uses: AhsanAyaz/angular-deploy-gh-pages-actions@v1.3.2 ## replace by latest version without it you will see Expected format {org}/{repo}[/path]@ref. Actual 'AhsanAyaz/angular-deploy-gh-pages-actions',Input string was not in a correct format.
       with:
